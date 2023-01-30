@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>ecommerce</title>
+    <style>
+        /* img{
+            width: 100%;
+        } */
+        .product-container{
+  display:flex;
+  flex-wrap:wrap;
+   width:100%;
+  justify-content:center
+} 
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+    background-color: white; 
+  
+  padding-bottom:1%
+
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.product-description {
+  font-size: 0.875rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.product-price {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: orange;
+}
+
+.add-to-cart-button {
+  padding: 10px 20px;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+  background-color: darkorange;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ }
+.original-price {
+  text-decoration: line-through;
+  color: lightgray;
+  font-size: 0.875rem;
+}
+
+.discount-price {
+  color: orange;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+body{
+  background-color:yellow;
+}
+button a{
+  text-decoration: none;
+  color: red;
+  
+}
+    </style>
+  </head>
+  <body>
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">FlipKart</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'index' %}">HOME</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'product' %}">PRODUCT</a>
+        <a class="flex-sm-fill text-sm-center nav-link " href="{% url 'loginpage' %}">LOGIN</a>
+        <a class="flex-sm-fill text-sm-center nav-link " href="{% url 'register' %}">REGISTRATION</a>
+        <a class="flex-sm-fill text-sm-center nav-link " href="">CART</a>
+      </nav><br><br><br>
+
+      <!-- <div class="product-container">
+
+ 
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+          <h3 class="product-name">BOTTLE</h3>
+          <p class="product-description">Milton Aqua Stainless Bottle</p>
+          <div class="product-price">$99.99</div>
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+          
+          
+          
+          
+          
+          <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80" alt="Product Name" class="product-image">
+          <h3 class="product-name">SMART WATCH</h3>
+          <p class="product-description">Noise Pluse Smart Watch Bluetooth Calling</p>
+          <div class="product-price">
+            <span class="original-price">$99.99</span>
+            <span class="discount-price">$79.99</span>
+          </div>
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+          
+          
+          
+          
+          
+          
+          <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=384&q=80" alt="Product Name" class="product-image">
+          <h3 class="product-name">HEAD PHONE</h3>
+          <p class="product-description">Boat Bluetooth On Ear Headphone</p>
+          <div class="product-price">$99.99</div>
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+         
+          
+          
+          
+            
+          
+          <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="Product Name" class="product-image">
+          <h3 class="product-name">SUNGLASS</h3>
+          <p class="product-description">Sunglass for Men and Women Classic UV Protection</p>
+         <div class="product-price">
+            <span class="original-price">$99.99</span>
+            <span class="discount-price">$79.99</span>
+          </div>  <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+        
+         
+          
+          
+          
+        </div> -->
+        <div class="container">
+        <div class="row">
+            {% for i in data %}
+                    <div class="col-sm-4 card-space">
+                        <div class="card" style="width: 18rem;">
+                          
+                          <div class="card-body">
+                            <!-- <label>Photo :</label>
+                           <h5 class="card-text">{{i.profile_photo}}</h5> -->
+                          <img src="/media/{{i.image}}" class="img-responsive" height="200px" width="200px">
+                          <label></label>  <h5 class="card-title">{{i.name}}</h5>
+                          <label></label><h5 class="card-text">{{i.description}}</h5>
+                          <label></label><h5 class="card-text">{{i.price}}</h5>
+                          <!-- <label>Phonenumber :</label><h5 class="card-text">{{i.phone_number}}</h5>
+                          <label>Blood group :</label><h5 class="card-text">{{i.blood_group}}</h5> -->
+                          <button><a href="{% url 'addcart' i.id %}">ADD CART</a></button>
+                           
+                          
+                          
+                          
+                          </div>
+                          
+                          
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                </div>
+                  </div>
+                </div>
+      <!-- <img src="../static/css/images/flipkart.jpg"> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
